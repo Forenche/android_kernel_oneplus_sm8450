@@ -40,7 +40,7 @@
 #include "codecs/wcd938x/wcd938x.h"
 #include "codecs/wcd937x/wcd937x.h"
 #include "codecs/lpass-cdc/lpass-cdc.h"
-#include <bindings/audio-codec-port-types.h>
+#include <dt-bindings/sound/audio-codec-port-types.h>
 #include "codecs/lpass-cdc/lpass-cdc-wsa-macro.h"
 #include "waipio-port-config.h"
 #include "msm-audio-defs.h"
