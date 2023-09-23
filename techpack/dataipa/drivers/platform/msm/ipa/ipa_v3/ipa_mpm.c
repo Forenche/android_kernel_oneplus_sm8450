@@ -1865,7 +1865,7 @@ gsi_chan_fail:
 	return MHIP_STATUS_FAIL;
 }
 
-int ipa_mpm_notify_wan_state(struct wan_ioctl_notify_wan_state *state)
+int __maybe_unused ipa_mpm_notify_wan_state(struct wan_ioctl_notify_wan_state *state)
 {
 	int probe_id = IPA_MPM_MHIP_CH_ID_MAX;
 	int i;

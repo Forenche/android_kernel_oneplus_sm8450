@@ -4487,7 +4487,7 @@ static void audio_work_routine(struct work_struct *work)
 	}
 }
 
-int oplus_is_rf_ftm_mode(void)
+static int oplus_is_rf_ftm_mode(void)
 {
 	int boot_mode = get_boot_mode();
 #ifdef CONFIG_OPLUS_CHARGER_MTK

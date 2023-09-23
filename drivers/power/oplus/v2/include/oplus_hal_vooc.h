@@ -20,7 +20,7 @@ enum {
 	FW_CHECK_MODE,
 };
 
-void oplus_vooc_eint_register(struct oplus_chg_ic_dev *vooc_ic);
+void __maybe_unused oplus_vooc_eint_register(struct oplus_chg_ic_dev *vooc_ic);
 void oplus_vooc_eint_unregister(struct oplus_chg_ic_dev *vooc_ic);
 int oplus_vooc_read_ap_data(struct oplus_chg_ic_dev *vooc_ic);
 void oplus_vooc_set_data_active(struct oplus_chg_ic_dev *vooc_ic);

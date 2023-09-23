@@ -361,7 +361,7 @@ int mp2650_mms_set_vindpm_vol(struct oplus_chg_ic_dev *ic_dev, int vol_mv) /* de
 	return rc;
 }
 
-int mp2650_set_vindpm_vol(int vol) /* default 4.5V */
+static int mp2650_set_vindpm_vol(int vol) /* default 4.5V */
 {
 	int rc;
 	int tmp = 0;
@@ -384,7 +384,7 @@ int mp2650_usbin_input_current_limit[] = {
 	500, 800, 1000, 1200, 1500, 1750, 2000, 2200, 2500, 2750, 3000,
 };
 
-int mp2650_input_Ilimit_disable(void)
+static int __maybe_unused mp2650_input_Ilimit_disable(void)
 {
 	int rc = 0;
 	struct chip_mp2650 *chip = charger_ic;
@@ -395,7 +395,7 @@ int mp2650_input_Ilimit_disable(void)
 	return rc;
 }
 
-int mp2650_input_current_limit_ctrl_by_vooc_write(int current_ma)
+static int mp2650_input_current_limit_ctrl_by_vooc_write(int current_ma)
 {
 	int rc = 0;
 	int tmp = 0;
@@ -483,7 +483,7 @@ static int mp2650_get_charger_vol(struct chip_mp2650 *chip)
 	return vbus;
 }
 
-int mp2650_get_pre_icl_index(void)
+static int mp2650_get_pre_icl_index(void)
 {
 	int reg_val = 0;
 	int icl_index = 0;

@@ -136,7 +136,7 @@ struct rk826_bat{
 
 static struct rk826_bat the_bat;
 static struct oplus_vooc_chip *the_chip = NULL;
-struct wakeup_source *rk826_update_wake_lock = NULL;
+static struct wakeup_source *rk826_update_wake_lock = NULL;
 struct delayed_work rk826_update_temp_soc;
 
 extern bool oplus_chg_get_chging_status(void);
@@ -323,7 +323,7 @@ static int oplus_i2c_dma_write(struct i2c_client *client, u16 addr, s32 len, u8 
 
 #else /*CONFIG_OPLUS_CHARGER_MTK*/
 
-DEFINE_MUTEX(dma_wr_access_rk826);
+static DEFINE_MUTEX(dma_wr_access_rk826);
 static char gpDMABuf_pa[GTP_DMA_MAX_TRANSACTION_LENGTH] = {0};
 static int oplus_i2c_dma_read(struct i2c_client *client, u16 addr, s32 len, u8 *rxbuf)
 {
@@ -528,7 +528,7 @@ fw_update_check_err:
 	return FW_CHECK_FAIL;
 }
 
-u32 js_hash_en(u32 hash, const u8 *buf, u32 len)
+static u32 js_hash_en(u32 hash, const u8 *buf, u32 len)
 {
 	u32 i;
 
@@ -537,12 +537,12 @@ u32 js_hash_en(u32 hash, const u8 *buf, u32 len)
 	return hash;
 }
 
-u32 js_hash(const u8 *buf, u32 len)
+static u32 js_hash(const u8 *buf, u32 len)
 {
 	return js_hash_en(0x47C6A7E6, buf, len);
 }
 
-int WriteSram(struct oplus_vooc_chip *chip, const u8 *buf, u32 size)
+static int WriteSram(struct oplus_vooc_chip *chip, const u8 *buf, u32 size)
 {
 	u8 offset = 0;
 	u16 reg_addr;
@@ -614,7 +614,7 @@ int WriteSram(struct oplus_vooc_chip *chip, const u8 *buf, u32 size)
 	return 0;
 }
 
-int Download_00_code(struct oplus_vooc_chip *chip)
+static int Download_00_code(struct oplus_vooc_chip *chip)
 {
 	u8 transfer_buf[TRANSFER_LIMIT];
 	u32 onetime_size = TRANSFER_LIMIT - 8;
@@ -650,7 +650,7 @@ int Download_00_code(struct oplus_vooc_chip *chip)
 	return 0;
 }
 
-int Download_ff_code(struct oplus_vooc_chip *chip)
+static int Download_ff_code(struct oplus_vooc_chip *chip)
 {
 	u8 transfer_buf[TRANSFER_LIMIT];
 	u32 onetime_size = TRANSFER_LIMIT - 8;
@@ -906,7 +906,7 @@ update_fw_err:
 	chg_err("fail\n");
 	return 1;
 }
-int DownloadFirmware(struct oplus_vooc_chip *chip, const u8 *buf, u32 size)
+static int DownloadFirmware(struct oplus_vooc_chip *chip, const u8 *buf, u32 size)
 {
 	u8 transfer_buf[TRANSFER_LIMIT];
 	u32 onetime_size = TRANSFER_LIMIT - 8;
@@ -1310,7 +1310,7 @@ update_fw_err:
 	return ret;
 }
 
-int rk826_asic_fw_status(struct oplus_vooc_chip *chip)
+static int rk826_asic_fw_status(struct oplus_vooc_chip *chip)
 {
 	u32 force_dis_update_flag = 0x00000000;
 	u32 sw_reset_flag = SW_RESET_FLAG;

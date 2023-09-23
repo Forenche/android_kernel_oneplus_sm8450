@@ -165,7 +165,7 @@ static inline struct timespec current_kernel_time(void)
 #define PD_APDO_MIN_VOLT(pdo)			(((pdo) >> 8) & 0xFF)
 #define PD_APDO_MAX_CURR(pdo)			((pdo) & 0x7F)
 
-int oplus_is_rf_ftm_mode(void);
+int __maybe_unused oplus_is_rf_ftm_mode(void);
 
 typedef enum {
 	CHARGER_SUBTYPE_DEFAULT = 0,

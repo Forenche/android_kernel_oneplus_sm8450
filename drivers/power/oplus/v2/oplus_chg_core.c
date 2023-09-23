@@ -23,7 +23,7 @@ MODULE_PARM_DESC(oplus_log_level, "debug log level");
 
 int charger_abnormal_log = 0;
 
-int oplus_is_rf_ftm_mode(void)
+int __maybe_unused oplus_is_rf_ftm_mode(void)
 {
 	int boot_mode = get_boot_mode();
 #ifdef CONFIG_OPLUS_CHARGER_MTK
@@ -121,7 +121,7 @@ static struct oplus_chg_module *oplus_chg_find_first_module(void)
 
 static int __init oplus_chg_class_init(void)
 {
-	int rc;
+	int rc = 0;
 #ifdef MODULE
 	int module_num, i;
 	struct oplus_chg_module *first_module;
@@ -159,12 +159,10 @@ static int __init oplus_chg_class_init(void)
 			}
 		}
 	}
-#endif /* MODULE */
 
 end:
 	return 0;
 
-#ifdef MODULE
 module_init_err:
 	for (i = i - 1; i >= 0; i--) {
 		oplus_module = &first_module[i];

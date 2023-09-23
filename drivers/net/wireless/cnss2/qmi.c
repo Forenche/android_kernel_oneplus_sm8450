@@ -252,7 +252,7 @@ static void cnss_wlfw_host_cap_parse_mlo(struct cnss_plat_data *plat_priv,
 
 #ifdef OPLUS_FEATURE_WIFI_WSA
 //Modify for wsa function in SMT mode
-static bool needSupportWsa() {
+static bool needSupportWsa(void) {
 	int project_id = get_project();
 	cnss_pr_dbg("project: %d\n", project_id);
 	if (project_id == 20846 || project_id == 20847 || project_id == 133194
@@ -641,7 +641,7 @@ out:
 
 #ifdef OPLUS_FEATURE_WIFI_BDF
 //Modify for: multi projects using different bdf
-static bool is_prj_support_region_id() {
+static bool is_prj_support_region_id(void) {
         int project_id = get_project();
         cnss_pr_dbg("project: %d\n", project_id);
         if (project_id == 20846 || project_id == 20847 || project_id == 133194

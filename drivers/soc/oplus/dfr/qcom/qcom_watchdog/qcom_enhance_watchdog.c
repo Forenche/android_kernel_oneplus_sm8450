@@ -13,8 +13,8 @@
 #include <linux/workqueue.h>
 #include <linux/rtc.h>
 #include <linux/sched/debug.h>
-#if IS_MODULE(CONFIG_OPLUS_FEATURE_QCOM_WATCHDOG)
-#include "../../../../kernel/irq/internals.h"
+#if IS_ENABLED(CONFIG_OPLUS_FEATURE_QCOM_WATCHDOG)
+#include "../../../../../../kernel/irq/internals.h"
 #endif
 
 #define MASK_SIZE	32
@@ -36,7 +36,7 @@
 unsigned int smp_call_any_cpu;
 unsigned long smp_call_many_cpumask;
 
-static oplus_print_utc_cnt = 0;
+static int oplus_print_utc_cnt = 0;
 
 struct oplus_irq_counter {
 	unsigned int all_irqs_last;

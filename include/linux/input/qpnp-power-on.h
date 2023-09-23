@@ -11,7 +11,7 @@
 #include <linux/errno.h>
 #include <linux/types.h>
 
-#if IS_MODULE(CONFIG_OPLUS_FEATURE_QCOM_PMICWD)
+#if IS_ENABLED(CONFIG_OPLUS_FEATURE_QCOM_PMICWD)
 #include <linux/regulator/driver.h>
 #include <linux/regulator/machine.h>
 #include <linux/regulator/of_regulator.h>

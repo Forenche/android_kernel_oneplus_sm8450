@@ -3686,7 +3686,7 @@ int ipa_mpm_init(void);
 void ipa_mpm_exit(void);
 int ipa_mpm_mhip_xdci_pipe_enable(enum ipa_usb_teth_prot prot);
 int ipa_mpm_mhip_xdci_pipe_disable(enum ipa_usb_teth_prot xdci_teth_prot);
-int ipa_mpm_notify_wan_state(struct wan_ioctl_notify_wan_state *state);
+int __maybe_unused ipa_mpm_notify_wan_state(struct wan_ioctl_notify_wan_state *state);
 int ipa3_is_mhip_offload_enabled(void);
 int ipa_mpm_reset_dma_mode(enum ipa_client_type src_pipe,
 	enum ipa_client_type dst_pipe);
@@ -3712,7 +3712,7 @@ static inline int ipa_mpm_mhip_xdci_pipe_disable(
 {
 	return 0;
 }
-static inline int ipa_mpm_notify_wan_state(
+static inline int __maybe_unused ipa_mpm_notify_wan_state(
 	struct wan_ioctl_notify_wan_state *state)
 {
 	return 0;
